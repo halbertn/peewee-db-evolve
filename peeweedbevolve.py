@@ -364,6 +364,7 @@ _re_varchar = re.compile('^varchar[(]\\d+[)]$')
 def normalize_column_type(t):
   t = t.lower()
   if t in ['serial', 'int', 'integer auto_increment', 'auto']: t = 'integer'
+  if t in ['bigauto']: t = 'bigint'
   if t in ['timestamp without time zone', 'datetime']: t = 'timestamp'
   if t in ['timestamp with time zone', 'datetime_tz']: t = 'timestamptz'
   if t in ['time without time zone']: t = 'time'
